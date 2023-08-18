@@ -17,7 +17,7 @@ static void node_destroy(Node *n){
 }
 
 static Node *node_construct(data_type val, Node* next){
-    Node *n = (Node *)malloc(sizeof(n));
+    Node *n = (Node *)malloc(sizeof(Node));
     n->data = val;
     n->next = (struct Node*)next;
 
