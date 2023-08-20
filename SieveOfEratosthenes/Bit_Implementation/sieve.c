@@ -18,9 +18,8 @@ int *CreateList(int N){
 
 //Marks as 0 all numbers that are multiples of X;
 void MarkNonPrimes(int *List, int X, int N){
-    for(int i = X; i <= N; i++){
-        if(i%X == 0)
-            ClearBit(List, i);
+    for(int i = X; i <= N; i+=X){
+        ClearBit(List, i);
     }
 }
 

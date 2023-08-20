@@ -13,9 +13,8 @@ char *CreateList(int N){
 
 //Marks as 0 all numbers that are multiples of X;
 void MarkNonPrimes(char *List, int X, int N){
-    for(int i = X; i <= N; i++){
-        if(i%X == 0)
-            List[i] = '-';
+    for(int i = X; i <= N; i+=X){
+        List[i] = '-';
     }
 }
 
