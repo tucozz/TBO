@@ -22,15 +22,16 @@ int main(){
     //Executar um algoritmo de ordenacao e medir o seu tempo, como ja feito em laboratorios anteriores.
     clock_t t;
     t = clock();
-    sort(array, 0, qtd-1);
+    sort(array, 0, qtd);
     t = clock() - t;
     double time_taken = ((double)t)/CLOCKS_PER_SEC;
-    printf("O algoritmo levou %f segundos para executar", time_taken);
+    printf("O algoritmo levou %f segundos para executar\n", time_taken);
 
     //Exibir o array ordenado em stdout.
     for(int i = 0; i < qtd; i++){
-        printf("%d", array[i]);
+        printf("%d ", array[i]);
     }
+    printf("\n");
     
     //Liberar a memoria do array.
     free(array);
