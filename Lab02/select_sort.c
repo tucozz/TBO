@@ -1,5 +1,4 @@
 #include "item.h"
-#include "stdio.h"
 
 void sort(Item *a, int lo, int hi){
     //escolhe qual o idx que a gente vai ACERTAR agora
