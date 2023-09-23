@@ -22,7 +22,7 @@ int main(){
     //Executar um algoritmo de ordenacao e medir o seu tempo, como ja feito em laboratorios anteriores.
     clock_t t;
     t = clock();
-    sort(array, 0, qtd);
+    sort(array, 0, qtd-1);
     t = clock() - t;
     double time_taken = ((double)t)/CLOCKS_PER_SEC;
     printf("O algoritmo levou %f segundos para executar\n", time_taken);
