@@ -1,7 +1,8 @@
 #include "item.h"
-//#if defined VERSAO_3 || VERSAO_4
+#if defined VERSAO_3 || VERSAO_4
 #include <stdlib.h>
-//#endif
+#include <time.h>
+#endif
 
 int partition(Item *a, int lo, int hi){
     int i = lo, j = hi+1;
@@ -31,16 +32,26 @@ void insertion_sort(Item *a, int lo, int hi){
 
 #endif
 
-//#if defined VERSAO_3 || defined VERSAO_4
+#if defined VERSAO_3 || defined VERSAO_4
     
 int median_of_3(Item *a, int lo, int hi){
+    time_t t1;
+    srand((unsigned) time (&t1));
+    int num1 = rand() % hi + lo;
+    int num2 = rand() % hi + lo; 
+    int num3 = rand() % hi + lo; 
 
+    if (num1 > num2) { int t = num1; num1 = num2; num2 = t; }
+    if (num2 > num3) { int t = num2; num2 = num3; num3 = t; }
+    if (num1 > num2) { int t = num1; num1 = num2; num2 = t; }
+
+    return num2;
 }
 
-//#endif
+#endif
 
 void quick_sort(Item *a, int lo, int hi){
-    #ifdef CUTOFF
+    #if defined CUTOFF && (defined VERSAO_2 || defined VERSAO_4) 
     if(hi <= lo + CUTOFF - 1){
         insertion_sort(a, lo, hi);
     #else
