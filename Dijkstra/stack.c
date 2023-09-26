@@ -13,6 +13,7 @@ struct Stack{
 };
 
 static void node_destroy(Node *n){
+    free(n->data);
     free(n);
 }
 
@@ -25,7 +26,7 @@ static Node *node_construct(data_type val, Node* next){
 }
 
 // cria uma stack
-Stack *stack_construct(){
+Stack *stack_construct(size_t size){
     Stack *s = (Stack*)malloc(sizeof(s));
     s->size = 0;
     s->head = NULL;

@@ -1,7 +1,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-typedef int data_type;
+typedef void* data_type;
 typedef struct Stack Stack;
 
 // cria uma stack
