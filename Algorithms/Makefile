@@ -2,12 +2,15 @@ CC = gcc
 override CFLAGS += -Wall -Wextra -g
 MAIN = client.c
 
-SORT_ALGORITHMS = $(wildcard *_sort.c)
+SORT_ALGORITHMS = $(wildcard *_sort)
 
-all: $(SORT_ALGORITHMS)
+all: main
+
+main: $(MAIN) $(SORT_ALGORITHMS)
+	@echo "Você deve especificar um algoritmo de ordenação, como 'make quick_sort'."
 
 %_sort: %_sort.c
-	$(CC) $(CFLAGS) -o $(patsubst %_sort,%,$@) $^ $(MAIN)
+	$(CC) $(CFLAGS) -o main $^ $(MAIN)
 
 clean:
-	rm -f $(SORT_ALGORITHMS:%_sort=%)
+	rm -f main
