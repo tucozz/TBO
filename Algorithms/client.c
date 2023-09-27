@@ -5,11 +5,13 @@
 
 extern void sort(Item *a, int lo, int hi);
 
-int main(){
+int main(int argc, char *argv[]){
     
     //Receber como um parametro o numero N de itens a serem ordenados.
     int qtd;
-    scanf("%d", &qtd);
+    if(argc != 2)
+        exit(printf("Definir quantidade de entradas\n"));
+    sscanf(argv[1],"%d", &qtd);
 
     //Alocar dinamicamente um array para guardar os N itens na memoria.
     Item *array = calloc(qtd, sizeof(Item));
@@ -27,11 +29,15 @@ int main(){
     double time_taken = ((double)t)/CLOCKS_PER_SEC;
     printf("O algoritmo levou %f segundos para executar\n", time_taken);
 
+    #ifdef PRINT
+
     //Exibir o array ordenado em stdout.
     for(int i = 0; i < qtd; i++){
         printf("%d ", array[i]);
     }
     printf("\n");
+
+    #endif
     
     //Liberar a memoria do array.
     free(array);
