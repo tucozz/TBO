@@ -27,7 +27,6 @@ int main(int argc, char *argv[]){
     sort(array, 0, qtd-1);
     t = clock() - t;
     double time_taken = ((double)t)/CLOCKS_PER_SEC;
-    printf("O algoritmo levou %f segundos para executar\n", time_taken);
 
     #ifdef PRINT
 
@@ -38,6 +37,8 @@ int main(int argc, char *argv[]){
     printf("\n");
 
     #endif
+
+    printf("O algoritmo levou %f segundos para executar\n", time_taken);
     
     //Liberar a memoria do array.
     free(array);
